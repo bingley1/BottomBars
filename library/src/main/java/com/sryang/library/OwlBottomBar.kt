@@ -17,9 +17,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import java.util.Locale
 
 @Composable
@@ -78,4 +80,13 @@ private object CoursesDestinations {
     const val FEATURED_ROUTE = "courses/featured"
     const val MY_COURSES_ROUTE = "courses/my"
     const val SEARCH_COURSES_ROUTE = "courses/search"
+}
+
+@Preview
+@Composable
+fun PreviewOwnBottomBar() {
+    BottomBarsProvider.OwlBottomBar(
+        navController = rememberNavController(), tabs =
+        arrayOf(CourseTabs.MY_COURSES, CourseTabs.FEATURED, CourseTabs.SEARCH)
+    )
 }

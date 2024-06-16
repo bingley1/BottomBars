@@ -30,6 +30,7 @@ import com.sryang.library.R
 @Composable
 fun BottomBarsProvider.YoutubeBottomBar() {
     var currentTab by remember { mutableStateOf("home") }
+    val iconSize = 27.dp
 
     BottomAppBar(modifier = Modifier.height(65.dp)) {
         NavigationBar(
@@ -39,6 +40,7 @@ fun BottomBarsProvider.YoutubeBottomBar() {
             }, icon = {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Icon(
+                        modifier = Modifier.size(iconSize),
                         painter = if (currentTab == "home") painterResource(id = R.drawable.ic_sel_home) else painterResource(
                             id = R.drawable.ic_home
                         ),
@@ -53,11 +55,11 @@ fun BottomBarsProvider.YoutubeBottomBar() {
             }, icon = {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Icon(
+                        modifier = Modifier.size(iconSize),
                         painter = if (currentTab == "shorts") painterResource(id = R.drawable.ic_sel_shorts) else painterResource(
                             id = R.drawable.ic_shorts
                         ),
                         contentDescription = "",
-                        Modifier.size(35.dp)
                     )
                     Text(text = "shorts", fontSize = 10.sp)
                 }
@@ -67,9 +69,9 @@ fun BottomBarsProvider.YoutubeBottomBar() {
             NavigationBarItem(selected = false, onClick = {
             }, icon = {
                 Icon(
+                    modifier = Modifier.size(40.dp),
                     painter = painterResource(id = R.drawable.plus),
                     contentDescription = "",
-                    modifier = Modifier.size(50.dp)
                 )
             })
 
@@ -81,6 +83,7 @@ fun BottomBarsProvider.YoutubeBottomBar() {
                 icon = {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Icon(
+                            modifier = Modifier.size(iconSize),
                             painter = if (currentTab == "subscriptions") painterResource(id = R.drawable.ic_sel_sub) else painterResource(
                                 id = R.drawable.ic_sub
                             ),
@@ -99,7 +102,7 @@ fun BottomBarsProvider.YoutubeBottomBar() {
                         painter = painterResource(id = R.drawable.ic_youtube3),
                         contentDescription = "",
                         modifier = Modifier
-                            .size(35.dp)
+                            .size(25.dp)
                             .clip(CircleShape)
                             .border(
                                 if (currentTab == "you") 2.dp else 0.dp,

@@ -67,9 +67,14 @@ private val BottomNavLabelTransformOrigin = TransformOrigin(0f, 0.5f)
 
 @Composable
 fun BottomBarsProvider.JetsnackBottomBar(
-    tabs: Array<HomeSections>,
-    currentRoute: String,
-    navigateToRoute: (String) -> Unit,
+    tabs: Array<HomeSections> = arrayOf(
+        HomeSections.FEED,
+        HomeSections.PROFILE,
+        HomeSections.SEARCH,
+        HomeSections.CART
+    ),
+    currentRoute: String = HomeSections.FEED.route,
+    navigateToRoute: (String) -> Unit = {},
 ) {
     val routes = remember { tabs.map { it.route } }
     val currentSection = tabs.first { it.route == currentRoute }

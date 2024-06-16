@@ -23,12 +23,12 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun BottomBarsProvider.SurveyBottomBar(
-    shouldShowPreviousButton: Boolean,
-    shouldShowDoneButton: Boolean,
-    isNextButtonEnabled: Boolean,
-    onPreviousPressed: () -> Unit,
-    onNextPressed: () -> Unit,
-    onDonePressed: () -> Unit,
+    shouldShowPreviousButton: Boolean = true,
+    shouldShowDoneButton: Boolean = true,
+    isNextButtonEnabled: Boolean = true,
+    onPreviousPressed: () -> Unit = {},
+    onNextPressed: () -> Unit = {},
+    onDonePressed: () -> Unit = {},
 ) {
     Surface(shadowElevation = 7.dp) {
         Row(

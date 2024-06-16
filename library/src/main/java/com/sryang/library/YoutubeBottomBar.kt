@@ -23,11 +23,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.sryang.library.BottomBarsProvider
 import com.sryang.library.R
 
 @Preview
 @Composable
-fun YoutubeBottomBar() {
+fun BottomBarsProvider.YoutubeBottomBar() {
     var currentTab by remember { mutableStateOf("home") }
 
     BottomAppBar(modifier = Modifier.height(65.dp)) {
@@ -101,7 +102,9 @@ fun YoutubeBottomBar() {
                             .size(35.dp)
                             .clip(CircleShape)
                             .border(
-                                if (currentTab == "you") 2.dp else 0.dp, Color.LightGray, CircleShape
+                                if (currentTab == "you") 2.dp else 0.dp,
+                                Color.LightGray,
+                                CircleShape
                             )
                     )
                     Text(text = "you", fontSize = 10.sp)

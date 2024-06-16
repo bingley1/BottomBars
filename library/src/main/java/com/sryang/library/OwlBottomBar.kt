@@ -25,7 +25,10 @@ import androidx.navigation.compose.rememberNavController
 import java.util.Locale
 
 @Composable
-fun BottomBarsProvider.OwlBottomBar(navController: NavController, tabs: Array<CourseTabs>) {
+fun BottomBarsProvider.OwlBottomBar(
+    navController: NavController = rememberNavController(),
+    tabs: Array<CourseTabs> = arrayOf(CourseTabs.MY_COURSES, CourseTabs.FEATURED, CourseTabs.SEARCH)
+) {
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route

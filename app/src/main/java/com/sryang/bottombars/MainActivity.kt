@@ -50,7 +50,7 @@ class MainActivity : ComponentActivity() {
             BottomBarsTheme {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
-                    bottomBar = selectedBottomBar.bottomBar
+                    bottomBar = selectedBottomBar.bottomBar ?: {}
                 ) { innerPadding ->
                     Greeting(
                         name = "Android",

@@ -5,7 +5,8 @@ import androidx.compose.runtime.Composable
 
 object BottomBarsProvider
 
-sealed class BottomAppBarTypes(val name: String, val bottomBar: @Composable () -> Unit) {
+sealed class BottomAppBarTypes(val name: String, val bottomBar: @Composable (() -> Unit)?) {
+    object None : BottomAppBarTypes("None", null)
     object Youtube : BottomAppBarTypes("Youtube", { BottomBarsProvider.YoutubeBottomBar() })
     object Owl : BottomAppBarTypes("Owl", { BottomBarsProvider.OwlBottomBar() })
     object Survey : BottomAppBarTypes("Survey", { BottomBarsProvider.SurveyBottomBar() })
@@ -14,6 +15,7 @@ sealed class BottomAppBarTypes(val name: String, val bottomBar: @Composable () -
 }
 
 val bottomAppBarTypeList = listOf(
+    BottomAppBarTypes.None,
     BottomAppBarTypes.Youtube,
     BottomAppBarTypes.Owl,
     BottomAppBarTypes.Survey,
